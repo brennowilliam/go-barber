@@ -1,9 +1,9 @@
 // Express
-import express from 'express'
+import express, { Application } from 'express'
 import routes from './routes'
 
 class App {
-  public server: express.Application
+  public server: Application
 
   constructor() {
     this.server = express()
