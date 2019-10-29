@@ -1,24 +1,35 @@
-import Sequelize, { Model } from 'sequelize'
+import Sequelize, { Model, DataTypes } from 'sequelize'
 
-// // Interface
-// export interface User {
-//   name: string
-// }
+interface User {
+  id: number
+  name: string
+  email: string
+  password_hash: string
+  provider: boolean
+  updatedAt: string
+  createdAt: string
+}
 
 class User extends Model {
-  static init(sequelize: Sequelize.Sequelize) {
-    super.init({
-      name: Sequelize.STRING,
-    })
+  public name!: string
+  public email!: string
+  public password_hash!: string
+  public provider!: boolean
+
+  static initModel(sequelize: Sequelize.Sequelize): {} {
+    User.init(
+      {
+        name: DataTypes.STRING,
+        email: DataTypes.STRING,
+        password_hash: DataTypes.STRING,
+        provider: DataTypes.BOOLEAN,
+      },
+      {
+        sequelize,
+      }
+    )
+    return this
   }
 }
 
-// class User extends Model {
-//   static init(sequelize: Sequelize) {
-//     super.init({
-//       name: Sequelize.STRING,
-//     })
-//   }
-// }
-
-// export default User
+export default User

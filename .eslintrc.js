@@ -3,7 +3,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier/@typescript-eslint', 'airbnb-base', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -19,10 +19,12 @@ module.exports = {
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
     camelcase: 'off',
+    '@typescript-eslint/camelcase': ['error', { properties: 'never' }],
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
     '@typescript-eslint/no-unused-vars': 'error',
     'no-console': 'off',
     semi: 0,
+    'lines-between-class-members': 0,
   },
   settings: {
     'import/resolver': {
